@@ -1,0 +1,115 @@
+import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+
+export const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="bg-foreground text-background">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          {/* About */}
+          <div>
+            <h3 className="mb-4 text-xl font-bold text-primary">
+              Tawade Kitchen
+            </h3>
+            <p className="text-sm text-background/80">
+              Authentic homemade Indian snacks made with love and traditional recipes. 
+              Bringing the taste of home to your doorstep.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="mb-4 font-semibold">Quick Links</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="#home" className="text-background/80 hover:text-primary">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#products" className="text-background/80 hover:text-primary">
+                  Products
+                </a>
+              </li>
+              <li>
+                <a href="#about-us" className="text-background/80 hover:text-primary">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="text-background/80 hover:text-primary">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Customer Service */}
+          <div>
+            <h4 className="mb-4 font-semibold">Customer Service</h4>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="#" className="text-background/80 hover:text-primary">
+                  Shipping Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-background/80 hover:text-primary">
+                  Return Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-background/80 hover:text-primary">
+                  FAQs
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-background/80 hover:text-primary">
+                  Terms & Conditions
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Social Media */}
+          <div>
+            <h4 className="mb-4 font-semibold">Follow Us</h4>
+            <div className="flex space-x-4">
+              <a
+                href="#"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-all hover:scale-110"
+              >
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-all hover:scale-110"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-all hover:scale-110"
+              >
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a
+                href="#"
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-all hover:scale-110"
+              >
+                <Youtube className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 border-t border-background/20 pt-8 text-center">
+          <p className="text-sm text-background/80">
+            © {currentYear} Tawade Kitchen. All rights reserved. Made with ❤️ in India
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
