@@ -9,8 +9,8 @@ export const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      detail: "+91 98765 43210",
-      link: "tel:+919876543210",
+      detail: "+91 9860002903",
+      link: "tel:+919860002903",
     },
     {
       icon: Mail,
@@ -21,7 +21,7 @@ export const Contact = () => {
     {
       icon: MapPin,
       title: "Location",
-      detail: "Mumbai, Maharashtra",
+      detail: "Kolhapur, Maharashtra",
       link: "#",
     },
     {
@@ -50,24 +50,28 @@ export const Contact = () => {
             <h3 className="mb-6 text-2xl font-semibold text-foreground">
               Send us a Message
             </h3>
-            <form className="space-y-4">
-              <div>
-                <Input type="text" placeholder="Your Name" />
-              </div>
-              <div>
-                <Input type="email" placeholder="Your Email" />
-              </div>
-              <div>
-                <Input type="tel" placeholder="Phone Number" />
-              </div>
-              <div>
-                <Textarea
-                  placeholder="Your Message"
-                  className="min-h-[120px]"
+            <form
+              action="https://formspree.io/f/mnngvdwb"
+              method="POST"
+              className="space-y-4"
+            >
+              <label className="block">
+                Your email:
+                <input
+                  type="email"
+                  name="email"
+                  className="mt-1 block w-full rounded border px-3 py-2"
                 />
-              </div>
-              <Button className="w-full bg-hero-gradient font-semibold shadow-warm transition-all hover:scale-105">
-                Send Message
+              </label>
+              <label className="block">
+                Your message:
+                <textarea
+                  name="message"
+                  className="mt-1 block w-full rounded border px-3 py-2"
+                ></textarea>
+              </label>
+              <Button className="w-full bg-hero-gradient font-semibold shadow-warm transition-all hover:scale-105 rounded px-4 py-2 text-white">
+                Send
               </Button>
             </form>
           </Card>
