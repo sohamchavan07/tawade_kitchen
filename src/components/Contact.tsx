@@ -27,7 +27,7 @@ export const Contact = () => {
     {
       icon: Clock,
       title: "Working Hours",
-      detail: "Mon - Sat: 9 AM - 8 PM",
+      detail: "Mon - Sun: 9 AM - 8 PM",
       link: "#",
     },
   ];
