@@ -14,42 +14,42 @@ export const ProductShowcase = () => {
   const products = [
     {
       name: "Rava Ladoo",
-      price: "₹ 199.00",
+      price: "₹ 560.00",
       image: ravaLadooImg,
     },
     {
       name: "Bundi Ladoo",
-      price: "₹ 229.00",
+      price: "₹ 400.00",
       image: bundiLadooImg,
     },
     {
       name: "Chakli",
-      price: "₹ 189.00",
+      price: "₹ 500.00",
       image: chakliImg,
     },
     {
       name: "Shankarpali",
-      price: "₹ 169.00",
+      price: "₹ 380.00",
       image: shankarpaliImg,
     },
     {
       name: "Chivda",
-      price: "₹ 149.00",
+      price: "₹ 400.00",
       image: chivdaImg,
     },
     {
       name: "Anarsa",
-      price: "₹ 239.00",
+      price: "₹ 750.00",
       image: anarsaImg,
     },
     {
       name: "Bakarvadi",
-      price: "₹ 179.00",
+      price: "₹ 450.00",
       image: bakarvadiImg,
     },
     {
       name: "Sev",
-      price: "₹ 159.00",
+      price: "₹ 350.00",
       image: sevImg,
     },
   ];
