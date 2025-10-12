@@ -3,30 +3,52 @@ import chakliImg from "@/assets/chakli.jpg";
 import ladooImg from "@/assets/ladoo.jpg";
 import puranpoliImg from "@/assets/puranpoli.jpg";
 import sevImg from "@/assets/sev.jpg";
+import ravaLadooImg from "@/assets/rava-ladoo.jpg";
+import bundiLadooImg from "@/assets/bundi-ladoo.jpg";
+import shankarpaliImg from "@/assets/shankarpali.jpg";
+import chivdaImg from "@/assets/chivda.jpg";
+import anarsaImg from "@/assets/anarsa.jpg";
+import bakarvadiImg from "@/assets/bakarvadi.jpg";
 
 export const ProductShowcase = () => {
   const products = [
     {
-      name: "Bhajni Chakli",
-      description: "Crispy and delicious spiral snack made with 4 types of dals, rice and aromatic masalas. Perfect tea-time companion!",
+      name: "Rava Ladoo",
+      price: "₹ 199.00",
+      image: ravaLadooImg,
+    },
+    {
+      name: "Bundi Ladoo",
+      price: "₹ 229.00",
+      image: bundiLadooImg,
+    },
+    {
+      name: "Chakli",
       price: "₹ 189.00",
       image: chakliImg,
     },
     {
-      name: "Besan Ladoo",
-      description: "Traditional sweet made with roasted gram flour, ghee and sugar. Melt-in-mouth goodness that brings back childhood memories.",
-      price: "₹ 249.00",
-      image: ladooImg,
+      name: "Shankarpali",
+      price: "₹ 169.00",
+      image: shankarpaliImg,
     },
     {
-      name: "Puranpoli",
-      description: "Sweet flatbread filled with lentil and jaggery mixture. Soft, flavorful and absolutely divine with a dollop of ghee.",
-      price: "₹ 219.00",
-      image: puranpoliImg,
+      name: "Chivda",
+      price: "₹ 149.00",
+      image: chivdaImg,
     },
     {
-      name: "Ratlami Sev",
-      description: "Crispy, spicy vermicelli snack with the perfect blend of spices. Ideal for munching anytime or adding to chaats.",
+      name: "Anarsa",
+      price: "₹ 239.00",
+      image: anarsaImg,
+    },
+    {
+      name: "Bakarvadi",
+      price: "₹ 179.00",
+      image: bakarvadiImg,
+    },
+    {
+      name: "Sev",
       price: "₹ 159.00",
       image: sevImg,
     },

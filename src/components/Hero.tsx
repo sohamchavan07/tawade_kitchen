@@ -42,14 +42,6 @@ export const Hero = () => {
                 SNACKING NEEDS
               </p>
             </div>
-
-            <Button
-              size="lg"
-              className="group mt-8 bg-hero-gradient font-semibold shadow-warm transition-all hover:scale-105 hover:shadow-lg"
-            >
-              SHOP NOW
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
           </div>
         </div>
       </div>
