@@ -16,7 +16,7 @@ export const Contact = () => {
       icon: Mail,
       title: "Email",
       detail: "tawadekitchen@gmail.com",
-      link: "mailto:tawadekitchen@gmail.com ",
+      link: "mailto:tawadekitchen@gmail.com",
     },
     {
       icon: MapPin,
@@ -50,23 +50,47 @@ export const Contact = () => {
             <h3 className="mb-6 text-2xl font-semibold text-foreground">
               Send us a Message
             </h3>
-            <form className="space-y-4">
+            <form
+              action="https://formspree.io/f/xldporro"
+              method="POST"
+              className="space-y-4"
+            >
               <div>
-                <Input type="text" placeholder="Your Name" />
+                <Input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  required
+                />
               </div>
               <div>
-                <Input type="email" placeholder="Your Email" />
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  required
+                />
               </div>
               <div>
-                <Input type="tel" placeholder="Phone Number" />
+                <Input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  required
+                />
               </div>
               <div>
                 <Textarea
+                  name="message"
                   placeholder="Your Message"
                   className="min-h-[120px]"
+                  required
                 />
               </div>
-              <Button className="w-full bg-hero-gradient font-semibold shadow-warm transition-all hover:scale-105">
+              <Button
+                type="submit"
+                className="w-full bg-hero-gradient font-semibold shadow-warm transition-all hover:scale-105"
+              >
                 Send Message
               </Button>
             </form>
@@ -75,11 +99,7 @@ export const Contact = () => {
           {/* Contact Information */}
           <div className="space-y-6">
             {contactInfo.map((info) => (
-              <a
-                key={info.title}
-                href={info.link}
-                className="block"
-              >
+              <a key={info.title} href={info.link} className="block">
                 <Card className="group p-6 transition-all hover:shadow-warm">
                   <div className="flex items-start space-x-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-full bg-hero-gradient">
@@ -101,7 +121,8 @@ export const Contact = () => {
                 Special Offers!
               </h3>
               <p className="mb-4 text-primary-foreground/90">
-                Sign up for our newsletter and get exclusive deals delivered to your inbox
+                Sign up for our newsletter and get exclusive deals delivered to
+                your inbox
               </p>
               <div className="flex gap-2">
                 <Input
