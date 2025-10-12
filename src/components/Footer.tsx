@@ -51,14 +51,9 @@ export const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="#" className="text-background/80 hover:text-primary">
-                  Shipping Policy
-                </a>
+Best Qualitity                </a>
               </li>
-              <li>
-                <a href="#" className="text-background/80 hover:text-primary">
-                  Return Policy
-                </a>
-              </li>
+             
               <li>
                 <a href="#" className="text-background/80 hover:text-primary">
                   FAQs
@@ -88,18 +83,8 @@ export const Footer = () => {
               >
                 <Instagram className="h-5 w-5" />
               </a>
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-all hover:scale-110"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-all hover:scale-110"
-              >
-                <Youtube className="h-5 w-5" />
-              </a>
+             
+             
             </div>
           </div>
         </div>
