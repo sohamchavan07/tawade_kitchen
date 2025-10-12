@@ -115,26 +115,6 @@ export const Contact = () => {
                 </Card>
               </a>
             ))}
-
-            <Card className="bg-hero-gradient p-8 text-center">
-              <h3 className="mb-2 text-2xl font-bold text-primary-foreground">
-                Special Offers!
-              </h3>
-              <p className="mb-4 text-primary-foreground/90">
-                Sign up for our newsletter and get exclusive deals delivered to
-                your inbox
-              </p>
-              <div className="flex gap-2">
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="bg-card"
-                />
-                <Button variant="secondary" className="font-semibold">
-                  Subscribe
-                </Button>
-              </div>
-            </Card>
           </div>
         </div>
       </div>
