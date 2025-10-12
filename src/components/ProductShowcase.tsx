@@ -13,43 +13,43 @@ import bakarvadiImg from "@/assets/bakarvadi.jpg";
 export const ProductShowcase = () => {
   const products = [
     {
-      name: "Rava Ladoo",
-      price: "₹ 560.00",
+      name: "रवा लाडू (Rava Ladoo)",
+      price: "₹ 560.00 per kg",
       image: ravaLadooImg,
     },
     {
-      name: "Bundi Ladoo",
-      price: "₹ 400.00",
+      name: "बुंदी लाडू (Bundi Ladoo)",
+      price: "₹ 400.00 per kg",
       image: bundiLadooImg,
     },
     {
-      name: "Chakli",
-      price: "₹ 500.00",
+      name: "चकली (Chakli)",
+      price: "₹ 500.00 per kg",
       image: chakliImg,
     },
     {
-      name: "Shankarpali",
-      price: "₹ 380.00",
+      name: "शंकरपाळी (Shankarpali)",
+      price: "₹ 380.00 per kg",
       image: shankarpaliImg,
     },
     {
-      name: "Chivda",
-      price: "₹ 400.00",
+      name: "चिवडा (Chivda)",
+      price: "₹ 400.00 per kg",
       image: chivdaImg,
     },
     {
-      name: "Anarsa",
-      price: "₹ 750.00",
+      name: "अनारसा (Anarsa)",
+      price: "₹ 750.00 per kg",
       image: anarsaImg,
     },
     {
-      name: "Bakarvadi",
-      price: "₹ 450.00",
+      name: "भाकरवडी (Bakarvadi)",
+      price: "₹ 450.00 per kg",
       image: bakarvadiImg,
     },
     {
-      name: "Sev",
-      price: "₹ 350.00",
+      name: "शेव (Sev)",
+      price: "₹ 350.00 per kg",
       image: sevImg,
     },
   ];
@@ -59,10 +59,11 @@ export const ProductShowcase = () => {
       <div className="container mx-auto px-4">
         <div className="mb-12 text-center">
           <h2 className="mb-4 text-4xl font-bold text-foreground md:text-5xl">
-            Our Best Sellers
+            आमचे सर्वोत्तम विक्रेते (Our Best Sellers)
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-muted-foreground">
-            Handcrafted with love and authentic recipes passed down through generations
+            प्रेमाने आणि परंपरागत पाककृतींनी तयार केलेले स्वादिष्ट घरगुती पदार्थ 
+            (Handcrafted with love and authentic recipes passed down through generations)
           </p>
         </div>
 

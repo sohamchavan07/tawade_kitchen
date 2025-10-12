@@ -69,20 +69,8 @@ Best Qualitity                </a>
 
           {/* Social Media */}
           <div>
-            <h4 className="mb-4 font-semibold">Follow Us</h4>
             <div className="flex space-x-4">
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-all hover:scale-110"
-              >
-                <Facebook className="h-5 w-5" />
-              </a>
-              <a
-                href="#"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground transition-all hover:scale-110"
-              >
-                <Instagram className="h-5 w-5" />
-              </a>
+            
              
              
             </div>

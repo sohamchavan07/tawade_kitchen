@@ -15,8 +15,8 @@ export const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      detail: "hello@tawadekitchen.com",
-      link: "mailto:hello@tawadekitchen.com",
+      detail: "tawadekitchen@gmail.com",
+      link: "mailto:tawadekitchen@gmail.com ",
     },
     {
       icon: MapPin,
