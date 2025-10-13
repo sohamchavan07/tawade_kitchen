@@ -51,13 +51,7 @@ export const Navigation = () => {
             >
               <Search className="h-5 w-5" />
             </Button>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="hover:text-primary"
-            >
-              <ShoppingCart className="h-5 w-5" />
-            </Button>
+          
 
             {/* Mobile Menu Button */}
             <Button
