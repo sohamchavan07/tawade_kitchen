@@ -26,7 +26,7 @@ export const products = [
   },
   {
     name: "रवा लाडू (Rava Ladoo)",
-    price: "₹ 580.00 per kg",
+    price: "₹ 560.00 per kg",
     image: ravaLadooNewImg,
     keywords: ["rava", "rava ladoo", "रवा"],
     id: slugify("rava-ladoo"),
