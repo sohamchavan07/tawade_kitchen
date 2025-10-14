@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Menu, X, ShoppingCart, Search } from "lucide-react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { productKeywords, products as productList } from "@/data/products";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const navItems = ["Home", "Products", "About Us", "Contact"];
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // productList imported from shared data
 
   return (
     <nav className="sticky top-0 z-50 bg-card shadow-soft">
@@ -48,6 +52,9 @@ export const Navigation = () => {
               size="icon"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
               className="hover:text-primary"
+              aria-label={isSearchOpen ? "Close search" : "Open search"}
+              aria-expanded={isSearchOpen}
+              aria-controls="site-search"
             >
               <Search className="h-5 w-5" />
             </Button>
@@ -72,11 +79,64 @@ export const Navigation = () => {
         {/* Search Bar */}
         {isSearchOpen && (
           <div className="pb-4">
-            <Input
-              type="search"
-              placeholder="Search for products..."
-              className="w-full"
-            />
+            <form
+              role="search"
+              aria-label="Site search"
+              onSubmit={(e: FormEvent) => {
+                  e.preventDefault();
+                  const q = searchQuery.trim().toLowerCase();
+
+                  if (!q) return;
+
+                  // try to find by id/name/keywords
+                  const match = productList.find((p) => {
+                    if (p.id && p.id === q) return true;
+                    if (p.name && p.name.toLowerCase().includes(q)) return true;
+                    if (p.keywords && p.keywords.some((k) => k.toLowerCase().includes(q))) return true;
+                    return false;
+                  });
+
+                  if (match && match.id) {
+                    const el = document.getElementById(match.id);
+                    if (el) {
+                      el.scrollIntoView({ behavior: "smooth", block: "center" });
+                      // also focus for keyboard users
+                      (el as HTMLElement).focus({ preventScroll: true });
+                      return;
+                    }
+                  }
+
+                  // fallback
+                  console.log("Search submitted:", searchQuery);
+                }}
+            >
+              <label htmlFor="site-search" className="sr-only">
+                Search products
+              </label>
+              <Input
+                id="site-search"
+                name="q"
+                list="product-keywords"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                type="search"
+                placeholder="Search for products..."
+                aria-label="Search products"
+                className="w-full"
+              />
+
+              {/* datalist provides built-in browser suggestions based on product keywords */}
+              <datalist id="product-keywords">
+                {productKeywords.map((k) => (
+                  <option key={k} value={k} />
+                ))}
+              </datalist>
+
+              {/* visible submit for keyboard users; can be hidden visually if desired */}
+              <button type="submit" className="sr-only">
+                Submit search
+              </button>
+            </form>
           </div>
         )}
 

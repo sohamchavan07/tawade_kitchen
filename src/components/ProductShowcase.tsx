@@ -1,58 +1,10 @@
 import { ProductCard } from "./ProductCard";
-import chakliImg from "@/assets/chakli.jpg";
-import ladooImg from "@/assets/ladoo.jpg";
-import puranpoliImg from "@/assets/puranpoli.jpg";
-import sevImg from "@/assets/sev.jpg";
-import ravaLadooImg from "@/assets/rava-ladoo.jpg";
-import bundiLadooImg from "@/assets/bundi-ladoo.jpg";
-import shankarpaliImg from "@/assets/shankarpali.jpg";
-import chivdaImg from "@/assets/chivda.jpg";
-import anarsaImg from "@/assets/anarsa.jpg";
-import bakarvadiImg from "@/assets/bakarvadi.jpg";
+import { products as productsData } from "@/data/products";
 
+// For now we only use the name/price/image fields from the original data.
+// If you later want images/prices centralized, move those into the shared file.
 export const ProductShowcase = () => {
-  const products = [
-    {
-      name: "रवा लाडू (Rava Ladoo)",
-      price: "₹ 560.00 per kg",
-      image: ravaLadooImg,
-    },
-    {
-      name: "बुंदी लाडू (Bundi Ladoo)",
-      price: "₹ 400.00 per kg",
-      image: bundiLadooImg,
-    },
-    {
-      name: "चकली (Chakli)",
-      price: "₹ 500.00 per kg",
-      image: chakliImg,
-    },
-    {
-      name: "शंकरपाळी (Shankarpali)",
-      price: "₹ 380.00 per kg",
-      image: shankarpaliImg,
-    },
-    {
-      name: "चिवडा (Chivda)",
-      price: "₹ 400.00 per kg",
-      image: chivdaImg,
-    },
-    {
-      name: "अनारसा (Anarsa)",
-      price: "₹ 750.00 per kg",
-      image: anarsaImg,
-    },
-    {
-      name: "भाकरवडी (Bakarvadi)",
-      price: "₹ 450.00 per kg",
-      image: bakarvadiImg,
-    },
-    {
-      name: "शेव (Sev)",
-      price: "₹ 350.00 per kg",
-      image: sevImg,
-    },
-  ];
+  const products = productsData;
 
   return (
     <section id="products" className="bg-secondary py-16">
@@ -69,7 +21,7 @@ export const ProductShowcase = () => {
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {products.map((product) => (
-            <ProductCard key={product.name} {...product} />
+            <ProductCard key={product.name} {...product} id={product.id} />
           ))}
         </div>
       </div>

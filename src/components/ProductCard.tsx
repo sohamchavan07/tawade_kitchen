@@ -4,11 +4,30 @@ interface ProductCardProps {
   name: string;
   price: string;
   image: string;
+  id?: string;
+  /** Optional click handler when a product is activated (click or keyboard) */
+  onClick?: () => void;
 }
 
-export const ProductCard = ({ name, price, image }: ProductCardProps) => {
+export const ProductCard = ({ name, price, image, onClick, id }: ProductCardProps) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    // Activate on Enter or Space
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onClick?.();
+    }
+  };
+
   return (
-    <Card className="group overflow-hidden transition-all hover:shadow-warm cursor-pointer">
+    <Card
+      id={id}
+      className="group overflow-hidden transition-all hover:shadow-warm cursor-pointer"
+      tabIndex={0}
+      role={onClick ? "button" : undefined}
+      aria-label={`${name} — ${price}`}
+      onKeyDown={handleKeyDown}
+      onClick={onClick}
+    >
       <div className="relative overflow-hidden">
         <img
           src={image}
