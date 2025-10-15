@@ -1,15 +1,8 @@
 import heroBanner from "@/assets/hero-banner.jpg";
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
-import { RefObject } from "react";
 
-export const Hero = ({
-  signInRef,
-  signUpRef,
-}: {
-  signInRef?: RefObject<HTMLButtonElement>;
-  signUpRef?: RefObject<HTMLButtonElement>;
-}) => {
+export const Hero = () => {
   return (
     <section id="home" className="relative overflow-hidden">
       <div className="relative h-[600px] md:h-[700px]">
@@ -48,33 +41,6 @@ export const Hero = ({
               <p className="text-xl text-foreground md:text-2xl">
                 SNACKING NEEDS
               </p>
-            </div>
-
-            {/* Sign In / Sign Up actions in hero (exposed via refs) */}
-            <div className="mt-6 flex items-center space-x-4">
-              <Button
-                ref={signInRef as any}
-                onClick={() => {
-                  // navigate to Rails sign in page
-                  if (typeof window !== "undefined") {
-                    window.location.href = "http://[::1]:3000/users/sign_in";
-                  }
-                }}
-                variant="outline"
-                className="hidden md:inline-flex"
-                aria-label="Sign in"
-              >
-                Sign In
-              </Button>
-
-              <Button
-                ref={signUpRef as any}
-                className="inline-flex"
-                aria-label="Sign up"
-              >
-                Sign Up
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
             </div>
           </div>
         </div>

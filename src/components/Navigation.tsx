@@ -47,29 +47,6 @@ export const Navigation = () => {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            {/* Sign In / Sign Up - desktop */}
-            <div className="hidden items-center space-x-2 md:flex">
-              <Button
-                variant="ghost"
-                onClick={() => {
-                  if (typeof window !== "undefined") {
-                    window.location.href = "http://[::1]:3000/users/sign_in";
-                  }
-                }}
-              >
-                Sign In
-              </Button>
-
-              <Button
-                onClick={() => {
-                  if (typeof window !== "undefined") {
-                    window.location.href = "http://[::1]:3000/users/sign_up";
-                  }
-                }}
-              >
-                Sign Up
-              </Button>
-            </div>
             <Button
               variant="ghost"
               size="icon"
@@ -176,31 +153,6 @@ export const Navigation = () => {
                 {item}
               </a>
             ))}
-
-            <div className="mt-3 flex flex-col space-y-2">
-              <Button
-                variant="ghost"
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  if (typeof window !== "undefined") {
-                    window.location.href = "http://[::1]:3000/users/sign_in";
-                  }
-                }}
-              >
-                Sign In
-              </Button>
-
-              <Button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  if (typeof window !== "undefined") {
-                    window.location.href = "http://[::1]:3000/users/sign_up";
-                  }
-                }}
-              >
-                Sign Up
-              </Button>
-            </div>
           </div>
         )}
       </div>
