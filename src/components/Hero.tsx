@@ -3,6 +3,9 @@ import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 
 export const Hero = () => {
+  const railsBase = (import.meta as any).env?.VITE_RAILS_BASE_URL || ""; // empty = same origin / reverse-proxied
+  const signInUrl = `${railsBase}/users/sign_in`;
+
   return (
     <section id="home" className="relative overflow-hidden">
       <div className="relative h-[600px] md:h-[700px]">
@@ -12,6 +15,8 @@ export const Hero = () => {
           className="h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/60 to-transparent" />
+
+        {/* Profile menu moved to top navigation */}
 
         <div className="container absolute inset-0 mx-auto flex items-center px-4">
           <div className="max-w-2xl space-y-6">
@@ -41,6 +46,18 @@ export const Hero = () => {
               <p className="text-xl text-foreground md:text-2xl">
                 SNACKING NEEDS
               </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <Button asChild size="lg">
+                <a href={signInUrl}>Sign In</a>
+              </Button>
+              <Button asChild size="lg" variant="secondary">
+                <a href={`${railsBase}/users/sign_up`} className="inline-flex items-center gap-2">
+                  <span>Sign Up</span>
+                  <ArrowRight />
+                </a>
+              </Button>
             </div>
           </div>
         </div>

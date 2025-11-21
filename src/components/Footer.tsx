@@ -79,7 +79,15 @@ Best Qualitity                </a>
 
         <div className="mt-12 border-t border-background/20 pt-8 text-center">
           <p className="text-sm text-background/80">
-            © {currentYear} Tawade Kitchen. All rights reserved. Made with ❤️ in India
+            © {currentYear} Tawade Kitchen. All rights reserved. Made by{" "}
+            <a
+              href="https://www.sohamchavan.site"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              SOHAM.
+            </a>
           </p>
         </div>
       </div>

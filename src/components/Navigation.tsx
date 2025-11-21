@@ -1,8 +1,11 @@
 import { FormEvent, useState } from "react";
-import { Menu, X, ShoppingCart, Search } from "lucide-react";
+import { Menu, X, ShoppingCart, Search, LogOut, User } from "lucide-react";
 import { Button } from "./ui/button";
+import { Link } from "react-router-dom";
 import { Input } from "./ui/input";
 import { productKeywords, products as productList } from "@/data/products";
+import { Avatar, AvatarFallback } from "./ui/avatar";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "./ui/dropdown-menu";
 
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,6 +13,29 @@ export const Navigation = () => {
 
   const navItems = ["Home", "Products", "About Us", "Contact"];
   const [searchQuery, setSearchQuery] = useState("");
+  const railsBase = (import.meta as any).env?.VITE_RAILS_BASE_URL || "";
+  const signInUrl = `${railsBase}/users/sign_in`;
+
+  const handleLogout = async () => {
+    try {
+      if (railsBase) {
+        await fetch(`${railsBase}/users/sign_out`, {
+          method: "DELETE",
+          credentials: "include",
+          headers: { Accept: "application/json" },
+        }).catch(() => {});
+      }
+    } finally {
+      try { localStorage.clear(); } catch {}
+      try { sessionStorage.clear(); } catch {}
+      document.cookie.split(";").forEach((c) => {
+        const eqPos = c.indexOf("=");
+        const name = eqPos > -1 ? c.substring(0, eqPos) : c;
+        document.cookie = `${name.trim()}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+      });
+      window.location.assign(signInUrl);
+    }
+  };
 
   // productList imported from shared data
 
@@ -34,15 +60,18 @@ export const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden items-center space-x-8 md:flex">
-            {navItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
-                className="text-foreground transition-colors hover:text-primary"
-              >
-                {item}
-              </a>
-            ))}
+            {navItems.map((item) => {
+              const hash = `#${item.toLowerCase().replace(" ", "-")}`;
+              return (
+                <Link
+                  key={item}
+                  to={{ pathname: "/", hash }}
+                  className="text-foreground transition-colors hover:text-primary"
+                >
+                  {item}
+                </Link>
+              );
+            })}
           </div>
 
           {/* Actions */}
@@ -58,6 +87,43 @@ export const Navigation = () => {
             >
               <Search className="h-5 w-5" />
             </Button>
+
+            {/* Auth Links */}
+            <Link
+              to="/users/sign_in"
+              className="hidden rounded-md px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground md:inline-block"
+            >
+              Sign in
+            </Link>
+            <Link
+              to="/users/sign_up"
+              className="hidden rounded-md bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 md:inline-block"
+            >
+              Sign up
+            </Link>
+
+            {/* Profile menu */}
+            <div className="hidden md:block">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button aria-label="Open profile menu" className="rounded-full focus:outline-none focus:ring-2 focus:ring-ring">
+                    <Avatar>
+                      <AvatarFallback>
+                        <User className="h-5 w-5" />
+                      </AvatarFallback>
+                    </Avatar>
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuLabel>Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Logout</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           
 
             {/* Mobile Menu Button */}
@@ -143,16 +209,41 @@ export const Navigation = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="border-t border-border py-4 md:hidden">
-            {navItems.map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
-                className="block py-2 text-foreground hover:text-primary"
+            {navItems.map((item) => {
+              const hash = `#${item.toLowerCase().replace(" ", "-")}`;
+              return (
+                <Link
+                  key={item}
+                  to={{ pathname: "/", hash }}
+                  className="block py-2 text-foreground hover:text-primary"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item}
+                </Link>
+              );
+            })}
+            <div className="mt-2 flex items-center gap-3">
+              <Link
+                to="/users/sign_in"
+                className="flex-1 rounded-md border border-border px-3 py-2 text-center text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {item}
-              </a>
-            ))}
+                Sign in
+              </Link>
+              <Link
+                to="/users/sign_up"
+                className="flex-1 rounded-md bg-primary px-3 py-2 text-center text-sm font-semibold text-primary-foreground hover:opacity-90"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sign up
+              </Link>
+              <button
+                onClick={() => { setIsMenuOpen(false); handleLogout(); }}
+                className="flex-1 rounded-md border border-border px-3 py-2 text-center text-sm font-medium text-foreground hover:bg-accent hover:text-accent-foreground"
+              >
+                Logout
+              </button>
+            </div>
           </div>
         )}
       </div>
