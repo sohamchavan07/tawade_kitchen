@@ -14,7 +14,9 @@ const ToastViewport = React.forwardRef<
   <ToastPrimitives.Viewport
     ref={ref}
     className={cn(
-      "fixed top-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:bottom-0 sm:right-0 sm:top-auto sm:flex-col md:max-w-[420px]",
+      // Place toasts at the top on larger screens to avoid overlapping bottom-right chatbot UI.
+      // Keep full-width on very small screens but use auto width and a top-right offset from `sm` upwards.
+      "fixed top-4 left-0 z-[100] flex max-h-screen w-full flex-col-reverse p-4 sm:top-4 sm:right-4 sm:left-auto sm:w-auto sm:flex-col md:max-w-[420px]",
       className,
     )}
     {...props}

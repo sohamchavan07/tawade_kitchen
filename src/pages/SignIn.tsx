@@ -15,19 +15,12 @@ const SignIn = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  const handleSubmit = async (e: FormEvent) => {
+  const maintenanceMessage = "We are currently working on this. Thanks for your patience.";
+
+  // For now show maintenance message instead of performing sign in.
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    try {
-      await signIn(email, password);
-      toast({ title: "Signed in", description: "Welcome back!" });
-      navigate("/");
-    } catch (err: any) {
-      const message = err?.message || "Failed to sign in";
-      toast({ title: "Error", description: message });
-    } finally {
-      setIsSubmitting(false);
-    }
+    toast({ title: "Notice", description: maintenanceMessage });
   };
 
   return (
@@ -71,7 +64,15 @@ const SignIn = () => {
             </form>
             <p className="mt-4 text-center text-sm text-muted-foreground">
               Don’t have an account?{" "}
-              <Link to="/users/sign_up" className="text-primary underline-offset-4 hover:underline">
+              <Link
+                to="/users/sign_up"
+                className="text-primary underline-offset-4 hover:underline"
+                onClick={(e) => {
+                  // prevent navigation for now and show maintenance message
+                  e.preventDefault();
+                  toast({ title: "Notice", description: maintenanceMessage });
+                }}
+              >
                 Sign up
               </Link>
             </p>
