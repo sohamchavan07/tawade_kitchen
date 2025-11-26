@@ -1,10 +1,18 @@
 import heroBanner from "@/assets/hero-banner.jpg";
 import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
 
 export const Hero = () => {
+  const [showMessage, setShowMessage] = useState(false);
   const railsBase = (import.meta as any).env?.VITE_RAILS_BASE_URL || ""; // empty = same origin / reverse-proxied
   const signInUrl = `${railsBase}/users/sign_in`;
+
+  const handleButtonClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setShowMessage(true);
+    setTimeout(() => setShowMessage(false), 3000);
+  };
 
   return (
     <section id="home" className="relative overflow-hidden">
@@ -50,15 +58,23 @@ export const Hero = () => {
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Button asChild size="lg">
-                <a href={signInUrl}>Sign In</a>
+                <a href={signInUrl} onClick={handleButtonClick}>Sign In</a>
               </Button>
               <Button asChild size="lg" variant="secondary">
-                <a href={`${railsBase}/users/sign_up`} className="inline-flex items-center gap-2">
+                <a href={`${railsBase}/users/sign_up`} onClick={handleButtonClick} className="inline-flex items-center gap-2">
                   <span>Sign Up</span>
                   <ArrowRight />
                 </a>
               </Button>
             </div>
+
+            {showMessage && (
+              <div className="mt-4 rounded-lg bg-amber-50 border border-amber-200 p-4">
+                <p className="text-sm text-amber-800 font-medium">
+                  We are currently working on this. Thanks for your patience! 🙏
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
